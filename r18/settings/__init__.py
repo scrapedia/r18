@@ -1,7 +1,7 @@
-BOT_NAME = 'r18'
+BOT_NAME = "r18"
 
-SPIDER_MODULES = ['r18.spiders']
-NEWSPIDER_MODULE = 'r18.spiders'
+SPIDER_MODULES = ["r18.spiders"]
+NEWSPIDER_MODULE = "r18.spiders"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
