@@ -16,4 +16,7 @@ A Spider for R18
 
 .. image:: https://snyk.io/test/github/scrapedia/r18/badge.svg
     :target: https://snyk.io/test/github/scrapedia/r18
-    
+
+.. image:: https://depshield.sonatype.org/badges/scrapedia/r18/depshield.svg
+    :target: https://depshield.github.io
+    :alt: DepShield Badge
