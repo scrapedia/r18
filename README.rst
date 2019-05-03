@@ -20,3 +20,7 @@ A Spider for R18
 .. image:: https://depshield.sonatype.org/badges/scrapedia/r18/depshield.svg
     :target: https://depshield.github.io
     :alt: DepShield Badge
+
+.. image:: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
+    :target: https://renovatebot.com
+    :alt: Renovate enabled
