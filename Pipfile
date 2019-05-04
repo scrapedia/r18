@@ -7,6 +7,3 @@ name = "pypi"
 scrapy = "*"
 
 [dev-packages]
-
-[requires]
-python_version = "3.6"
