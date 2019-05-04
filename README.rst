@@ -8,8 +8,9 @@ A Spider for R18
 .. image:: https://codebeat.co/badges/7feab55f-a261-4ee9-8acd-32c7e2ca7cdb
     :target: https://codebeat.co/projects/github-com-scrapedia-r18-master
 
-.. image:: https://api.codacy.com/project/badge/Grade/b21f65638b5a4e25b001a5da8e5a2bb1
-    :target: https://www.codacy.com/app/grammy-jiang/r18?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=scrapedia/r18&amp;utm_campaign=Badge_Grade
+.. image:: https://api.codacy.com/project/badge/Grade/3eb532d4ac6442a5896a0cc4abef2e03
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/app/grammy-jiang/r18?utm_source=github.com&utm_medium=referral&utm_content=scrapedia/r18&utm_campaign=Badge_Grade_Settings
 
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
     :target: https://www.gnu.org/licenses/gpl-3.0
