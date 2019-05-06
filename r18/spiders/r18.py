@@ -27,7 +27,9 @@ class R18SitemapSpider(SitemapSpider):
         """
 
         :param response:
+        :type response: Response
         :return:
+        :rtype: Generator
 
         @url https://www.r18.com/videos/vod/amateur/detail/-/id=got031121/?lg=zh
         @returns items 0 0
@@ -43,13 +45,18 @@ class R18SitemapSpider(SitemapSpider):
         """
 
         :param response:
+        :type response: Response
         :return:
+        :rtype: Generator
 
         @url https://www.r18.com/videos/vod/amateur/detail/-/id=got031121/?lg=en
         @returns items 1 1
         @returns requests 0 0
         @scrapes url name image_cover image_thumbnail image_detail_view detail
         """
+
+        self.crawler.stats.inc_value("r18/en_count")
+
         il = ItemLoader(
             item=R18DetailItem(), selector=response.css(".product-details-page")
         )
