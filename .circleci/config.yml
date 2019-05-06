@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  py37:
     docker:
       - image: circleci/python:3.7.3
 
@@ -20,7 +20,7 @@ jobs:
           name: install dependencies
           command: |
             sudo pip install --upgrade pipenv
-            pipenv install
+            pipenv install --dev
 
 #      - save_cache:
 #          paths:
@@ -28,6 +28,5 @@ jobs:
 #          key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       - run:
-          name: scrapy check
-          command: |
-            pipenv run scrapy check --verbose
+          name: tox
+          command: tox -e py37
