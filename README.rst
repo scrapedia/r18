@@ -2,6 +2,9 @@
 A Spider for R18
 ================
 
+Overview
+========
+
 .. image:: https://circleci.com/gh/scrapedia/r18/tree/master.svg?style=svg
     :target: https://circleci.com/gh/scrapedia/r18/tree/master
 
@@ -26,6 +29,10 @@ A Spider for R18
     :target: https://renovatebot.com
     :alt: Renovate enabled
 
+.. image:: https://pyup.io/repos/github/scrapedia/r18/shield.svg
+   :target: https://pyup.io/repos/github/scrapedia/r18/
+   :alt: pyup
+   
 Requirements
 ============
 
