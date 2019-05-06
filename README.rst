@@ -41,4 +41,5 @@ Requirements
    :alt: Python 3
    
 * Python 3.6+
+* Scrapy 1.6.0
 * Fully tested on Linux, but it should works on Windows, Mac OSX, BSD
