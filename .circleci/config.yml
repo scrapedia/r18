@@ -20,7 +20,7 @@ jobs:
           name: install dependencies
           command: |
             sudo pip install --upgrade pipenv
-            pipenv install --dev
+            pipenv install --skip-lock --dev
 
 #      - save_cache:
 #          paths:
