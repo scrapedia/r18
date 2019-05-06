@@ -25,3 +25,13 @@ A Spider for R18
 .. image:: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
     :target: https://renovatebot.com
     :alt: Renovate enabled
+
+Requirements
+============
+
+.. image:: https://pyup.io/repos/github/scrapedia/r18/python-3-shield.svg
+   :target: https://pyup.io/repos/github/scrapedia/r18/
+   :alt: Python 3
+   
+* Python 3.6+
+* Fully tested on Linux, but it should works on Windows, Mac OSX, BSD
