@@ -22,9 +22,6 @@ Overview
     :target: https://depshield.github.io
     :alt: DepShield Badge
 
-
-
-   
 Requirements
 ============
 
