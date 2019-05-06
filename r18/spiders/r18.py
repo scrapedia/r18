@@ -1,9 +1,12 @@
+from typing import Generator
 from urllib.parse import urlparse, urlunparse
 
+from scrapy.item import Item
 from scrapy.http import Request, Response
+from scrapy.loader import ItemLoader
 from scrapy.spiders import SitemapSpider
 
-from r18.items import R18DetialItem
+from r18.items import R18DetailItem
 
 
 class R18SitemapSpider(SitemapSpider):
@@ -11,38 +14,16 @@ class R18SitemapSpider(SitemapSpider):
     sitemap_urls = ["http://www.r18.com/sitemap.xml"]
     sitemap_rules = [
         (
-            r"https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=zh)",
+            r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=zh)",
             "redirect_to_en",
         ),
         (
-            r"https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=en)",
+            r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=en)",
             "parse_detail",
         ),
     ]
 
-    product_parser = {
-        "Channel": lambda x: list(
-            (text.strip(), href)
-            for text, href in zip(
-                x.css("a::text").extract(), x.css("a::attr(href)").extract()
-            )
-        ),
-        "Runtime": lambda x: " ".join(x.css("dd::text").get().strip().split()),
-        "Series": lambda x: list(
-            (text.strip(), href)
-            for text, href in zip(
-                x.css("a::text").extract(), x.css("a::attr(href)").extract()
-            )
-        ),
-        "Studio": lambda x: list(
-            (text.strip(), href)
-            for text, href in zip(
-                x.css("a::text").extract(), x.css("a::attr(href)").extract()
-            )
-        ),
-    }
-
-    def redirect_to_en(self, response: Response):
+    def redirect_to_en(self, response: Response) -> Generator[Request, None, None]:
         """
 
         :param response:
@@ -52,10 +33,13 @@ class R18SitemapSpider(SitemapSpider):
         @returns items 0 0
         @returns requests 1 1
         """
+
+        self.crawler.stats.inc_value("r18/zh_count")
+
         url = urlunparse(urlparse(response.url)._replace(query="lg=en"))
         yield Request(url=url, callback=self.parse_detail)
 
-    def parse_detail(self, response: Response):
+    def parse_detail(self, response: Response) -> Generator[Item, None, None]:
         """
 
         :param response:
@@ -64,32 +48,22 @@ class R18SitemapSpider(SitemapSpider):
         @url https://www.r18.com/videos/vod/amateur/detail/-/id=got031121/?lg=en
         @returns items 1 1
         @returns requests 0 0
-        @scrapes url name image detail
+        @scrapes url name image_cover image_thumbnail image_detail_view detail
         """
-        div = response.css(".product-details-page")
-
-        product = dict()
-        for key, value in zip(div.css("dt::text").extract(), div.css("dd")):
-            _key = key[:-1]
-            _func = self.product_parser.get(
-                _key, lambda x: x.css("dd::text").get().strip()
-            )
-            product.update({_key: _func(value)})
-
-        item = R18DetialItem()
-
-        item.update(
-            {
-                "url": response.url,
-                "name": div.css("cite::text").get(),
-                "image": {
-                    "cover": div.css(
-                        "img:not([alt='close']):not([class]):not([itemprop])::attr(src)"
-                    ).get(),
-                    "lazy": div.css("img[class='lazyOwl']::attr(data-src)").extract(),
-                },
-                "detail": product,
-            }
+        il = ItemLoader(
+            item=R18DetailItem(), selector=response.css(".product-details-page")
         )
 
-        yield item
+        il.add_value("url", response.url)
+        il.add_css("name", "cite::text")
+        il.add_css("image_cover", ".detail-single-picture img::attr(src)")
+        il.add_css("image_thumbnail", ".lazy::attr(data-original)")
+        il.add_css("image_detail_view", ".lazyOwl::attr(data-src)")
+        il.add_css("detail", ".product-details dl")
+
+        if il.get_css(css=".pop-list a[itemprop='url']"):
+            il.add_css("actresses", ".pop-list a[itemprop='url']")
+        if il.get_css(css=".pop-list a[itemprop='genre']"):
+            il.add_css("categories", ".pop-list a[itemprop='genre']")
+
+        yield il.load_item()
