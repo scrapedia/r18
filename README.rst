@@ -18,9 +18,6 @@ Overview
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
     :target: https://www.gnu.org/licenses/gpl-3.0
 
-.. image:: https://snyk.io/test/github/scrapedia/r18/badge.svg
-    :target: https://snyk.io/test/github/scrapedia/r18
-
 .. image:: https://depshield.sonatype.org/badges/scrapedia/r18/depshield.svg
     :target: https://depshield.github.io
     :alt: DepShield Badge
@@ -40,6 +37,11 @@ Requirements
    :target: https://pyup.io/repos/github/scrapedia/r18/
    :alt: Python 3
    
+.. image:: https://snyk.io/test/github/scrapedia/r18/badge.svg
+    :target: https://snyk.io/test/github/scrapedia/r18
+    :alt: Known Vulnerabilities
+
+
 * Python 3.6+
 * Scrapy 1.6.0
 * Fully tested on Linux, but it should works on Windows, Mac OSX, BSD
