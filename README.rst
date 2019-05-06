@@ -26,9 +26,7 @@ Overview
     :target: https://renovatebot.com
     :alt: Renovate enabled
 
-.. image:: https://pyup.io/repos/github/scrapedia/r18/shield.svg
-   :target: https://pyup.io/repos/github/scrapedia/r18/
-   :alt: pyup
+
    
 Requirements
 ============
@@ -36,11 +34,14 @@ Requirements
 .. image:: https://pyup.io/repos/github/scrapedia/r18/python-3-shield.svg
    :target: https://pyup.io/repos/github/scrapedia/r18/
    :alt: Python 3
+
+.. image:: https://pyup.io/repos/github/scrapedia/r18/shield.svg
+   :target: https://pyup.io/repos/github/scrapedia/r18/
+   :alt: pyup
    
 .. image:: https://snyk.io/test/github/scrapedia/r18/badge.svg
     :target: https://snyk.io/test/github/scrapedia/r18
     :alt: Known Vulnerabilities
-
 
 * Python 3.6+
 * Scrapy 1.6.0
