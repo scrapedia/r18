@@ -22,9 +22,6 @@ Overview
     :target: https://depshield.github.io
     :alt: DepShield Badge
 
-.. image:: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
-    :target: https://renovatebot.com
-    :alt: Renovate enabled
 
 
    
@@ -42,6 +39,10 @@ Requirements
 .. image:: https://snyk.io/test/github/scrapedia/r18/badge.svg
     :target: https://snyk.io/test/github/scrapedia/r18
     :alt: Known Vulnerabilities
+
+.. image:: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
+    :target: https://renovatebot.com
+    :alt: Renovate enabled
 
 * Python 3.6+
 * Scrapy 1.6.0
