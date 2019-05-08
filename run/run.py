@@ -12,6 +12,7 @@ modules = [
     "r18.settings.cookies",
     "r18.settings.httpcache",
     "r18.settings.logging",
+    "r18.settings.pipelines",
     "r18.settings.user_agent",
 ]
 
