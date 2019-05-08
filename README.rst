@@ -2,6 +2,10 @@
 A Spider for R18
 ================
 
+This is a scrapy project for R18_ web scraping.
+
+.. _R18: https://www.r18.com/
+
 Overview
 ========
 
