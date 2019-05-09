@@ -22,6 +22,7 @@ Overview
 
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
     :target: https://www.gnu.org/licenses/gpl-3.0
+    :alt: License: AGPL v3
 
 .. image:: https://depshield.sonatype.org/badges/scrapedia/r18/depshield.svg
     :target: https://depshield.github.io
