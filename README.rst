@@ -58,3 +58,12 @@ Scrapy Technology Used In This Spider
 
 CI Used In This Spider
 ======================
+
+Spider Contract
+---------------
+
+Tox
+---
+
+CircleCI
+--------
