@@ -2,6 +2,11 @@
 A Spider for R18
 ================
 
+This is a scrapy project for R18_ web scraping, and also as an example for Scrapy technology and CI tools from `Github Marketplace`_.
+
+.. _R18: https://www.r18.com/
+.. _`Github Marketplace`: https://github.com/marketplace
+
 Overview
 ========
 
@@ -44,3 +49,9 @@ Requirements
 * Python 3.6+
 * Scrapy 1.6.0
 * Fully tested on Linux, but it should works on Windows, Mac OSX, BSD
+
+Usage
+=====
+
+Scrapy Technology Used In This Spider
+=====================================
