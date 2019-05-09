@@ -10,3 +10,4 @@ pillow = "*"
 [dev-packages]
 tox = "*"
 black = "*"
+isort = "*"

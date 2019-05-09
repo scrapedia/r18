@@ -1,8 +1,8 @@
 from typing import Generator
 from urllib.parse import urlparse, urlunparse
 
-from scrapy.item import Item
 from scrapy.http import Request, Response
+from scrapy.item import Item
 from scrapy.loader import ItemLoader
 from scrapy.spiders import SitemapSpider
 

@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 
 /Pipfile.lock
+/run/images/

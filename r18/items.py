@@ -1,4 +1,4 @@
-from typing import Dict, Generator, List, Tuple, Iterable
+from typing import Dict, Generator, Iterable, List, Tuple
 
 from scrapy.item import Field, Item
 from scrapy.loader.processors import TakeFirst
