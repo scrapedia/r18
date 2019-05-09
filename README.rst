@@ -53,6 +53,14 @@ Requirements
 Usage
 =====
 
+Pipenv is adopted for the virtual environment management. Create the virtual environment first:
+
+  pipenv install
+
+Go to the project root and run the command:
+
+  python run/run.py
+
 Scrapy Technology Used In This Spider
 =====================================
 
