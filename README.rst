@@ -55,3 +55,6 @@ Usage
 
 Scrapy Technology Used In This Spider
 =====================================
+
+CI Used In This Spider
+======================
