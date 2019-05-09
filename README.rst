@@ -59,11 +59,15 @@ Scrapy Technology Used In This Spider
 CI Used In This Spider
 ======================
 
-Spider Contract
----------------
+Spider Contracts
+----------------
 
-Tox
----
+Tox_
+----
 
-CircleCI
---------
+.. _Tox: https://tox.readthedocs.io/en/latest/
+
+CircleCI_
+---------
+
+.. _CircleCI: https://circleci.com/gh/scrapedia
