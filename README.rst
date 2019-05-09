@@ -61,12 +61,14 @@ Scrapy Technology Used In This Spider
 * `Requests and Responses`_
 * `Item Loader`_
 * `Spider Contracts`_
+* `Downloading and processing files and images`_
 
 .. _SitemapSpider: https://docs.scrapy.org/en/latest/topics/spiders.html#sitemapspider
 .. _`Stats Collection`: https://docs.scrapy.org/en/latest/topics/stats.html
 .. _`Requests and Responses`: https://docs.scrapy.org/en/latest/topics/request-response.html
 .. _`Item Loader`: https://docs.scrapy.org/en/latest/topics/loaders.html
 .. _`Spider Contracts`: https://docs.scrapy.org/en/latest/topics/contracts.html
+.. _`Downloading and processing files and images`: https://docs.scrapy.org/en/latest/topics/media-pipeline.html
 
 CI Used In This Spider
 ======================
