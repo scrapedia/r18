@@ -27,6 +27,10 @@ Overview
     :target: https://depshield.github.io
     :alt: DepShield Badge
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/python/black
+    :alt: Code style: black
+
 Requirements
 ============
 
