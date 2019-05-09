@@ -56,6 +56,18 @@ Usage
 Scrapy Technology Used In This Spider
 =====================================
 
+* SitemapSpider_
+* `Stats Collection`_
+* `Requests and Responses`_
+* `Item Loader`_
+* `Spider Contracts`_
+
+.. _SitemapSpider: https://docs.scrapy.org/en/latest/topics/spiders.html#sitemapspider
+.. _`Stats Collection`: https://docs.scrapy.org/en/latest/topics/stats.html
+.. _`Requests and Responses`: https://docs.scrapy.org/en/latest/topics/request-response.html
+.. _`Item Loader`: https://docs.scrapy.org/en/latest/topics/loaders.html
+.. _`Spider Contracts`: https://docs.scrapy.org/en/latest/topics/contracts.html
+
 CI Used In This Spider
 ======================
 
