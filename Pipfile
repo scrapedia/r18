@@ -8,6 +8,7 @@ Scrapy = "*"
 pillow = "*"
 
 [dev-packages]
-tox = "*"
 black = "*"
 isort = "*"
+pylint = "*"
+tox = "*"
