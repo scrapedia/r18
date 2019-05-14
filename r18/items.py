@@ -1,3 +1,6 @@
+"""
+The parsers used in ItemLoader and Item's processors
+"""
 import re
 from datetime import datetime
 from typing import Dict, Generator, Iterable, List, Tuple
@@ -11,21 +14,30 @@ PATTERN_RUNTIME = re.compile(
 )
 
 
-class ParseActresses(object):
+class ParseActresses:
+    """
+    actresses parser for field actresses
+    """
     def __call__(self, actresses: List[str]) -> Generator[Tuple[str, str], None, None]:
         for _ in actresses:
             href, text = Selector(text=_).css("a::attr(href), span::text").extract()
             yield {"name": text.strip(), "url": href}
 
 
-class ParseCategories(object):
+class ParseCategories:
+    """
+    categories parser for field categories
+    """
     def __call__(self, categories: List[str]) -> Generator[Tuple[str, str], None, None]:
         for _ in categories:
             href, text = Selector(text=_).css("a::attr(href), a::text").extract()
             yield {"name": text.strip(), "url": href}
 
 
-class ParseDetail(object):
+class ParseDetail:
+    """
+    detail parser for field detail
+    """
     def __init__(self):
         self.product_parser = {
             "Channel": self._parse_channel,
@@ -35,7 +47,8 @@ class ParseDetail(object):
             "Studio": self._parse_studio,
         }
 
-    def _parse_channel(self, channel: Selector) -> List[Dict[str, str]]:
+    @staticmethod
+    def _parse_channel(channel: Selector) -> List[Dict[str, str]]:
         _channel = list()
         for text, href in zip(
             channel.css("a::text").extract(), channel.css("a::attr(href)").extract()
@@ -43,7 +56,8 @@ class ParseDetail(object):
             _channel.append({"name": text.strip(), "url": href})
         return _channel
 
-    def _release_date(self, release_date: Selector) -> datetime:
+    @staticmethod
+    def _release_date(release_date: Selector) -> datetime:
         _release_date = release_date.css("dd::text").get().strip()
         replace_pair = (("june", "jun"), ("july", "jul"), ("sept", "sep"))
         _ = _release_date.lower()
@@ -54,11 +68,13 @@ class ParseDetail(object):
         except ValueError:
             return datetime.strptime(_, "%b %d, %Y")
 
-    def _parse_runtime(self, runtime: Selector):
+    @staticmethod
+    def _parse_runtime(runtime: Selector):
         _runtime = " ".join(runtime.css("dd::text").get().strip().split())
         return int(PATTERN_RUNTIME.match(_runtime).group("runtime"))
 
-    def _parse_series(self, series: Selector):
+    @staticmethod
+    def _parse_series(series: Selector):
         _series = dict()
         for text, href in zip(
             series.css("a::text").extract(), series.css("a::attr(href)").extract()
@@ -66,7 +82,8 @@ class ParseDetail(object):
             _series.update({text.strip(): href})
         return _series
 
-    def _parse_studio(self, studio: Selector) -> List[Dict[str, str]]:
+    @staticmethod
+    def _parse_studio(studio: Selector) -> List[Dict[str, str]]:
         _studio = list()
         for text, href in zip(
             studio.css("a::text").extract(), studio.css("a::attr(href)").extract()
@@ -74,18 +91,18 @@ class ParseDetail(object):
             _studio.append({"name": text.strip(), "url": href})
         return _studio
 
-    def __call__(self, v: List[str]) -> Generator[Dict[str, str], None, None]:
-        for _ in v:
+    def __call__(self, values: List[str]) -> Generator[Dict[str, str], None, None]:
+        for _ in values:
             div = Selector(text=_)
             product = dict()
-            for k, v in zip(div.css("dt::text").extract(), div.css("dd")):
+            for k, value in zip(div.css("dt::text").extract(), div.css("dd")):
                 _k = k[:-1]
                 _func = self.product_parser.get(
                     _k, lambda x: x.css("dd::text").get().strip()
                 )
                 try:
-                    _v = _func(v)
-                except AttributeError as err:
+                    _v = _func(value)
+                except AttributeError:
                     pass
                 else:
                     if _v and _v != "----":
@@ -93,7 +110,10 @@ class ParseDetail(object):
             yield product
 
 
-class JoinDict(object):
+class JoinDict:
+    """
+    join multiple dictionaries into one
+    """
     def __call__(self, values: Iterable[Dict]) -> Dict:
         _ = dict()
         for d in values:
@@ -102,6 +122,9 @@ class JoinDict(object):
 
 
 class R18DetailItem(Item):
+    """
+    The item which store all data extracted from web pages
+    """
     url = Field(output_processor=TakeFirst())
     name = Field(output_processor=TakeFirst())
 

@@ -1,3 +1,6 @@
+"""
+The basic settings for this spider
+"""
 BOT_NAME = "r18"
 
 SPIDER_MODULES = ["r18.spiders"]

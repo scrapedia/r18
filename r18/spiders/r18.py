@@ -1,3 +1,6 @@
+"""
+The spider for r18
+"""
 from typing import Generator
 from urllib.parse import urlparse, urlunparse
 

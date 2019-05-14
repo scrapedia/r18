@@ -1,3 +1,6 @@
+"""
+logging configuration for this spider
+"""
 import logging
 
 # LOG_ENABLED = True
