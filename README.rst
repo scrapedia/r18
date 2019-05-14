@@ -102,3 +102,8 @@ CircleCI_
 ---------
 
 .. _CircleCI: https://circleci.com/gh/scrapedia
+
+TODO
+====
+
+* Move zh page re-direction to en to a downloader middleware
