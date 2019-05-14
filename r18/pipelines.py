@@ -1,12 +1,22 @@
+"""
+An image pipeline inherited from ImagesPipeline which is provided by Scrapy to
+customize:
+ * the file path for images
+ * the action when item completes
+"""
 import hashlib
 
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.utils.python import to_bytes
 
 
-class R18Pipeline(ImagesPipeline):
+class R18ImagesPipeline(ImagesPipeline):
+    """
+    The customized image pipeline inherited from ImagesPipeline
+    """
+
     def __init__(self, store_uri, download_func=None, settings=None):
-        super(R18Pipeline, self).__init__(
+        super(R18ImagesPipeline, self).__init__(
             store_uri, download_func=download_func, settings=settings
         )
 
