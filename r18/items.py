@@ -18,6 +18,7 @@ class ParseActresses:
     """
     actresses parser for field actresses
     """
+
     def __call__(self, actresses: List[str]) -> Generator[Tuple[str, str], None, None]:
         for _ in actresses:
             href, text = Selector(text=_).css("a::attr(href), span::text").extract()
@@ -28,6 +29,7 @@ class ParseCategories:
     """
     categories parser for field categories
     """
+
     def __call__(self, categories: List[str]) -> Generator[Tuple[str, str], None, None]:
         for _ in categories:
             href, text = Selector(text=_).css("a::attr(href), a::text").extract()
@@ -38,6 +40,7 @@ class ParseDetail:
     """
     detail parser for field detail
     """
+
     def __init__(self):
         self.product_parser = {
             "Channel": self._parse_channel,
@@ -79,7 +82,7 @@ class ParseDetail:
         for text, href in zip(
             series.css("a::text").extract(), series.css("a::attr(href)").extract()
         ):
-            _series.update({text.strip(): href})
+            _series.update({"name": text.strip(), "url": href})
         return _series
 
     @staticmethod
@@ -106,7 +109,7 @@ class ParseDetail:
                     pass
                 else:
                     if _v and _v != "----":
-                        product.update({_k: _v})
+                        product.update({_k.lower(): _v})
             yield product
 
 
@@ -114,6 +117,7 @@ class JoinDict:
     """
     join multiple dictionaries into one
     """
+
     def __call__(self, values: Iterable[Dict]) -> Dict:
         _ = dict()
         for d in values:
@@ -125,6 +129,7 @@ class R18DetailItem(Item):
     """
     The item which store all data extracted from web pages
     """
+
     url = Field(output_processor=TakeFirst())
     name = Field(output_processor=TakeFirst())
 
