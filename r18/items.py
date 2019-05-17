@@ -54,7 +54,7 @@ class ParseDetail:
     def _parse_channel(channel: Selector) -> List[Dict[str, str]]:
         _channel = list()
         for text, href in zip(
-            channel.css("a::text").extract(), channel.css("a::attr(href)").extract()
+                channel.css("a::text").extract(), channel.css("a::attr(href)").extract()
         ):
             _channel.append({"name": text.strip(), "url": href})
         return _channel
@@ -80,7 +80,7 @@ class ParseDetail:
     def _parse_series(series: Selector):
         _series = dict()
         for text, href in zip(
-            series.css("a::text").extract(), series.css("a::attr(href)").extract()
+                series.css("a::text").extract(), series.css("a::attr(href)").extract()
         ):
             _series.update({"name": text.strip(), "url": href})
         return _series
@@ -89,7 +89,7 @@ class ParseDetail:
     def _parse_studio(studio: Selector) -> List[Dict[str, str]]:
         _studio = list()
         for text, href in zip(
-            studio.css("a::text").extract(), studio.css("a::attr(href)").extract()
+                studio.css("a::text").extract(), studio.css("a::attr(href)").extract()
         ):
             _studio.append({"name": text.strip(), "url": href})
         return _studio

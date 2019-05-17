@@ -13,6 +13,9 @@ from r18.items import R18DetailItem
 
 
 class R18SitemapSpider(SitemapSpider):
+    """
+    R18 sitemap spider
+    """
     name = "R18 Sitemap"
     sitemap_urls = ["http://www.r18.com/sitemap.xml"]
     sitemap_rules = [
@@ -60,20 +63,20 @@ class R18SitemapSpider(SitemapSpider):
 
         self.crawler.stats.inc_value("r18/en_count")
 
-        il = ItemLoader(
+        detail_il = ItemLoader(
             item=R18DetailItem(), selector=response.css(".product-details-page")
         )
 
-        il.add_value("url", response.url)
-        il.add_css("name", "cite::text")
-        il.add_css("image_cover", ".detail-single-picture img::attr(src)")
-        il.add_css("image_thumbnail", ".lazy::attr(data-original)")
-        il.add_css("image_detail_view", ".lazyOwl::attr(data-src)")
-        il.add_css("detail", ".product-details dl")
+        detail_il.add_value("url", response.url)
+        detail_il.add_css("name", "cite::text")
+        detail_il.add_css("image_cover", ".detail-single-picture img::attr(src)")
+        detail_il.add_css("image_thumbnail", ".lazy::attr(data-original)")
+        detail_il.add_css("image_detail_view", ".lazyOwl::attr(data-src)")
+        detail_il.add_css("detail", ".product-details dl")
 
-        if il.get_css(css=".pop-list a[itemprop='url']"):
-            il.add_css("actresses", ".pop-list a[itemprop='url']")
-        if il.get_css(css=".pop-list a[itemprop='genre']"):
-            il.add_css("categories", ".pop-list a[itemprop='genre']")
+        if detail_il.get_css(css=".pop-list a[itemprop='url']"):
+            detail_il.add_css("actresses", ".pop-list a[itemprop='url']")
+        if detail_il.get_css(css=".pop-list a[itemprop='genre']"):
+            detail_il.add_css("categories", ".pop-list a[itemprop='genre']")
 
-        yield il.load_item()
+        yield detail_il.load_item()
