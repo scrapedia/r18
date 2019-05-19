@@ -10,6 +10,10 @@ This is a scrapy project for R18_ web scraping, and also as an example for Scrap
 Overview
 ========
 
+.. image:: https://bestpractices.coreinfrastructure.org/projects/2827/badge
+    :alt: CII Best Practices
+    :target: https://bestpractices.coreinfrastructure.org/projects/2827
+
 .. image:: https://mperlet.github.io/pybadge/badges/9.5.svg
     :alt: pylint Score
 
