@@ -2,9 +2,8 @@
 The spider for r18
 """
 from typing import Generator
-from urllib.parse import urlparse, urlunparse
 
-from scrapy.http import Request, Response
+from scrapy.http import Response
 from scrapy.item import Item
 from scrapy.loader import ItemLoader
 from scrapy.spiders import SitemapSpider
@@ -23,7 +22,7 @@ class R18SitemapSpider(SitemapSpider):
         (
             r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=(?P<lang>(zh|en)))?$",
             "parse_detail",
-        ),
+        )
     ]
 
     def parse_detail(self, response: Response) -> Generator[Item, None, None]:
