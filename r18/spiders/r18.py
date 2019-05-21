@@ -21,32 +21,10 @@ class R18SitemapSpider(SitemapSpider):
     sitemap_urls = ["http://www.r18.com/sitemap.xml"]
     sitemap_rules = [
         (
-            r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=zh)",
-            "redirect_to_en",
-        ),
-        (
-            r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=en)",
+            r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=(?P<lang>(zh|en)))?$",
             "parse_detail",
         ),
     ]
-
-    def redirect_to_en(self, response: Response) -> Generator[Request, None, None]:
-        """
-
-        :param response:
-        :type response: Response
-        :return:
-        :rtype: Generator
-
-        @url https://www.r18.com/videos/vod/amateur/detail/-/id=got031121/?lg=zh
-        @returns items 0 0
-        @returns requests 1 1
-        """
-
-        self.crawler.stats.inc_value("r18/zh_count")
-
-        url = urlunparse(urlparse(response.url)._replace(query="lg=en"))
-        yield Request(url=url, callback=self.parse_detail)
 
     def parse_detail(self, response: Response) -> Generator[Item, None, None]:
         """
@@ -62,7 +40,7 @@ class R18SitemapSpider(SitemapSpider):
         @scrapes url name image_cover image_thumbnail image_detail_view detail
         """
 
-        self.crawler.stats.inc_value("r18/en_count")
+        self.crawler.stats.inc_value("r18/en_detail_count")
 
         detail_il = ItemLoader(
             item=R18DetailItem(), selector=response.css(".product-details-page")
