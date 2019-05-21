@@ -16,6 +16,7 @@ class R18SitemapSpider(SitemapSpider):
     """
     R18 sitemap spider
     """
+
     name = "R18 Sitemap"
     sitemap_urls = ["http://www.r18.com/sitemap.xml"]
     sitemap_rules = [

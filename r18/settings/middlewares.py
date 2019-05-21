@@ -1,0 +1,3 @@
+from r18.settings import DOWNLOADER_MIDDLEWARES
+
+DOWNLOADER_MIDDLEWARES.update({})
