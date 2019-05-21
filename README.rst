@@ -113,4 +113,4 @@ CircleCI_
 TODO
 ====
 
-* [ ] Move zh page re-direction to en to a downloader middleware
+* [X] Move zh page re-direction to en to a downloader middleware
