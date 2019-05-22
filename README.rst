@@ -14,7 +14,7 @@ Overview
     :alt: CII Best Practices
     :target: https://bestpractices.coreinfrastructure.org/projects/2827
 
-.. image:: https://mperlet.github.io/pybadge/badges/9.5.svg
+.. image:: https://mperlet.github.io/pybadge/badges/9.41.svg
     :alt: pylint Score
 
 .. image:: https://circleci.com/gh/scrapedia/r18/tree/master.svg?style=svg
