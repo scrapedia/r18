@@ -65,8 +65,8 @@ Requirements
 Usage
 =====
 
-Before Start
-------------
+Run MongoDB
+-----------
 
 Run docker-compose in docker folder to initial a MongoDB server:
 ::
@@ -90,6 +90,13 @@ Pipenv is adopted for the virtual environment management. Create the virtual env
 Go to the project root and run the command:
 ::
   cd run && python run.py
+
+Stop MongoDB
+------------
+
+Run the following command to stop MongoDB:
+::
+    docker-compose down --volumes
 
 Scrapy Technology Used In This Spider
 =====================================
