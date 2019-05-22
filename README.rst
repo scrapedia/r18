@@ -70,7 +70,9 @@ Before Start
 
 Run docker-compose in docker folder to initial a MongoDB server
 
-Remind: docker-library/mongo/#323
+Remind: `Error saving history file: FileOpenFailed: Unable to open() file /home/mongodb/.dbshell: Unknown error · Issue #323 · docker-library/mongo`_
+
+.. _`Error saving history file: FileOpenFailed: Unable to open() file /home/mongodb/.dbshell: Unknown error · Issue #323 · docker-library/mongo`: https://github.com/docker-library/mongo/issues/323#issuecomment-494648458
 
 Run R18 Spider
 --------------
