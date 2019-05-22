@@ -65,6 +65,14 @@ Requirements
 Usage
 =====
 
+Before Start
+------------
+
+Run docker-compose in docker folder to initial a MongoDB server
+
+Run R18 Spider
+--------------
+
 Pipenv is adopted for the virtual environment management. Create the virtual environment and activate it:
 
   pipenv install && pipenv shell
@@ -114,4 +122,4 @@ TODO
 ====
 
 * [X] Move zh page re-direction to en to a downloader middleware
-* [ ] Docker configurations for MongoBD
+* [X] Docker configurations for MongoBD
