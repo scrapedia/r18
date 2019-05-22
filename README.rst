@@ -70,6 +70,8 @@ Before Start
 
 Run docker-compose in docker folder to initial a MongoDB server
 
+Remind: docker-library/mongo/#323
+
 Run R18 Spider
 --------------
 
