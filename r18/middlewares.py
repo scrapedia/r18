@@ -17,6 +17,7 @@ class RedirectToEnMiddleware:
     """
     This downloader middleware redirects the zh detail request to en
     """
+
     def __init__(self, crawler: Crawler):
         """
 
@@ -52,18 +53,20 @@ class RedirectToEnMiddleware:
             return request.replace(url=url)
 
     def _get_url(self, url: str) -> str:
-        o: ParseResult = urlparse(url)
-        qs: Dict = parse_qs(o.query)
+        parsed_url: ParseResult = urlparse(url)
+        parsed_query: Dict = parse_qs(parsed_url.query)
 
         try:
-            lg = qs.get("lg", [])[0]
+            lg = parsed_query.get("lg", [])[0]
         except IndexError:
             lg = None
 
         if lg == "zh":
             self.crawler.stats.inc_value("r18/zh_detail_count")
-            qs.update({"lg": ["en"]})
-            o = o._replace(query=urlencode(query=qs, doseq=True))
-            return urlunparse(o)
-        else:
-            return url
+            parsed_query.update({"lg": ["en"]})
+            parsed_url = parsed_url._replace(
+                query=urlencode(query=parsed_query, doseq=True)
+            )
+            url = urlunparse(parsed_url)
+
+        return url
