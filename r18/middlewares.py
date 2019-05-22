@@ -57,11 +57,11 @@ class RedirectToEnMiddleware:
         parsed_query: Dict = parse_qs(parsed_url.query)
 
         try:
-            lg = parsed_query.get("lg", [])[0]
+            language = parsed_query.get("lg", [])[0]
         except IndexError:
-            lg = None
+            language = None
 
-        if lg == "zh":
+        if language == "zh":
             self.crawler.stats.inc_value("r18/zh_detail_count")
             parsed_query.update({"lg": ["en"]})
             parsed_url = parsed_url._replace(
