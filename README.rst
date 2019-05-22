@@ -68,7 +68,13 @@ Usage
 Before Start
 ------------
 
-Run docker-compose in docker folder to initial a MongoDB server
+Run docker-compose in docker folder to initial a MongoDB server:
+::
+    docker-compose up -d
+
+If you don't want to view log message:
+::
+    docker-compose up -d && docker-compose logs --follow
 
 Remind: `Error saving history file: FileOpenFailed: Unable to open() file /home/mongodb/.dbshell: Unknown error · Issue #323 · docker-library/mongo`_
 
