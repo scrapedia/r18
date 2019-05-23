@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Scrapy = "*"
 pillow = "*"
+Scrapy = "*"
+Scrapy-Pipelines = "*"
 
 [dev-packages]
 black = "*"
