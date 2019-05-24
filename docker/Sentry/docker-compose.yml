@@ -1,0 +1,79 @@
+version: '3'
+services:
+  sentry:
+    container_name: dc-sentry
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      - sentry.env
+    image: sentry:latest
+    links:
+      - redis
+      - postgres
+    networks:
+      - sentry
+    ports:
+      - 9000:9000
+    restart: always
+    tty: true
+  sentry-cron:
+    command: run cron
+    container_name: dc-sentry-cron
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      - sentry.env
+    image: sentry:latest
+    links:
+      - redis
+      - postgres
+    networks:
+      - sentry
+    restart: always
+    tty: true
+  sentry-worker:
+    command: run worker
+    container_name: dc-sentry-worker
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      - sentry.env
+    image: sentry:latest
+    links:
+      - redis
+      - postgres
+    networks:
+      - sentry
+    restart: always
+    tty: true
+  redis:
+    container_name: dc-sentry-redis
+    expose:
+      - '6379'
+    image: redis:latest
+    networks:
+      - sentry
+    restart: always
+    tty: true
+    volumes:
+      - ./redis-data:/data
+  postgres:
+    container_name: dc-sentry-postgres
+    expose:
+      - '5432'
+    environment:
+      POSTGRES_USER: sentry
+      POSTGRES_PASSWORD: xxxx
+    image: postgres:latest
+    networks:
+      - sentry
+    restart: always
+    tty: true
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+networks:
+  sentry:
+    driver: bridge
