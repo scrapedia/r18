@@ -14,7 +14,7 @@ modules = [
     "r18.settings.logging",
     "r18.settings.middlewares",
     "r18.settings.pipelines",
-    "r18.settings.sentry",
+    # "r18.settings.sentry",
     "r18.settings.user_agent",
 ]
 
