@@ -93,7 +93,7 @@ Initial postgres with senty first:
 ::
     docker run --detach \
         --name sentry-redis-init \
-        --volume $PWD/redis-data:/data
+        --volume $PWD/redis-data:/data \
         redis
     docker run --detach \
         --name sentry-postgres-init \
