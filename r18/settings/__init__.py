@@ -1,7 +1,31 @@
 """
 The basic settings for this spider
 """
-from typing import Dict
+import os
+from typing import Any, Dict
+
+from r18.exceptions import R18SettingsMissingException
+
+
+def get_env_var(  # pylint: disable=bad-continuation
+    var: str, default: Any = None
+) -> Any:
+    """
+    Get the given variable from the environment
+    :param var:
+    :type var: str
+    :param default:
+    :type default: Any
+    :return:
+    :rtype: Any
+    """
+    try:
+        return os.environ[var]
+    except KeyError as exc:
+        if default is None:
+            raise R18SettingsMissingException from exc
+        return default
+
 
 BOT_NAME = "r18"
 
