@@ -12,6 +12,7 @@ sentry-sdk = "*"
 [dev-packages]
 black = "*"
 isort = "*"
+mypy = "*"
 pylint = "*"
 tox = "*"
 ipython = "*"
