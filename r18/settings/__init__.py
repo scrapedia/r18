@@ -1,6 +1,8 @@
 """
 The basic settings for this spider
 """
+from typing import Dict
+
 BOT_NAME = "r18"
 
 SPIDER_MODULES = ["r18.spiders"]
@@ -18,10 +20,10 @@ ROBOTSTXT_OBEY = True
 #   'Accept-Language': 'en',
 # }
 
-SPIDER_MIDDLEWARES = {}
+SPIDER_MIDDLEWARES: Dict[str, int] = {}
 
-DOWNLOADER_MIDDLEWARES = {}
+DOWNLOADER_MIDDLEWARES: Dict[str, int] = {}
 
-EXTENSIONS = {}
+EXTENSIONS: Dict[str, int] = {}
 
-ITEM_PIPELINES = {}
+ITEM_PIPELINES: Dict[str, int] = {}
