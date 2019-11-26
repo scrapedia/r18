@@ -1,12 +1,14 @@
 import sys
 from pathlib import Path
+from typing import List
 
 from scrapy.crawler import CrawlerProcess
+from scrapy.settings import Settings
 from scrapy.utils.project import get_project_settings
 
 sys.path.append(str(Path("/").joinpath(*Path(__file__).parts[:-2])))
 
-modules = [
+modules: List[str] = [
     "r18.settings.autothrottle",
     "r18.settings.concurrent",
     "r18.settings.cookies",
@@ -19,12 +21,13 @@ modules = [
 ]
 
 if __name__ == "__main__":
-    settings = get_project_settings()
+    settings: Settings = get_project_settings()
 
+    module: str
     for module in modules:
         settings.setmodule(module=module)
 
-    process = CrawlerProcess(settings=settings)
+    process: CrawlerProcess = CrawlerProcess(settings=settings)
 
     process.crawl("R18 Sitemap")
 
