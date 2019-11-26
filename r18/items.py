@@ -3,7 +3,7 @@ The parsers used in ItemLoader and Item's processors
 """
 import re
 from datetime import datetime
-from typing import Dict, Generator, Iterable, List, Tuple
+from typing import Dict, Generator, Iterable, List
 
 from scrapy.item import Field, Item
 from scrapy.loader.processors import TakeFirst
@@ -19,7 +19,7 @@ class ParseActresses:
     actresses parser for field actresses
     """
 
-    def __call__(self, actresses: List[str]) -> Generator[Tuple[str, str], None, None]:
+    def __call__(self, actresses: List[str]) -> Generator[Dict[str, str], None, None]:
         for _ in actresses:
             href, text = Selector(text=_).css("a::attr(href), span::text").extract()
             yield {"name": text.strip(), "url": href}
@@ -30,7 +30,7 @@ class ParseCategories:
     categories parser for field categories
     """
 
-    def __call__(self, categories: List[str]) -> Generator[Tuple[str, str], None, None]:
+    def __call__(self, categories: List[str]) -> Generator[Dict[str, str], None, None]:
         for _ in categories:
             href, text = Selector(text=_).css("a::attr(href), a::text").extract()
             yield {"name": text.strip(), "url": href}
@@ -54,7 +54,7 @@ class ParseDetail:
     def _parse_channel(channel: Selector) -> List[Dict[str, str]]:
         _channel = list()
         for text, href in zip(
-                channel.css("a::text").extract(), channel.css("a::attr(href)").extract()
+            channel.css("a::text").extract(), channel.css("a::attr(href)").extract()
         ):
             _channel.append({"name": text.strip(), "url": href})
         return _channel
@@ -80,7 +80,7 @@ class ParseDetail:
     def _parse_series(series: Selector):
         _series = dict()
         for text, href in zip(
-                series.css("a::text").extract(), series.css("a::attr(href)").extract()
+            series.css("a::text").extract(), series.css("a::attr(href)").extract()
         ):
             _series.update({"name": text.strip(), "url": href})
         return _series
@@ -89,7 +89,7 @@ class ParseDetail:
     def _parse_studio(studio: Selector) -> List[Dict[str, str]]:
         _studio = list()
         for text, href in zip(
-                studio.css("a::text").extract(), studio.css("a::attr(href)").extract()
+            studio.css("a::text").extract(), studio.css("a::attr(href)").extract()
         ):
             _studio.append({"name": text.strip(), "url": href})
         return _studio
