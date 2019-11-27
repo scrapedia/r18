@@ -14,7 +14,7 @@ pytest-env
 pytest-instafail
 pytest-mypy
 pytest-pycharm
-pytest-pylint
+pytest-pylint==0.14.1
 pytest-sugar
 pytest-twisted
 pytest-watch
