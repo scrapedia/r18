@@ -1,7 +1,7 @@
 bandit
 black
 flake8
-ipython
+ipython==7.9.0
 isort
 mypy
 pre-commit
