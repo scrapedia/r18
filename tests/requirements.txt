@@ -20,4 +20,4 @@ pytest-twisted
 pytest-watch
 pytest-xdist
 radon
-tox
+tox==3.14.1
