@@ -1,5 +1,5 @@
-bandit
-black
+bandit==1.6.2
+black==19.10b0
 flake8==3.7.9
 ipython
 isort
