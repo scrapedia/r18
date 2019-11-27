@@ -16,7 +16,7 @@ pytest-mypy
 pytest-pycharm
 pytest-pylint
 pytest-sugar
-pytest-twisted
+pytest-twisted==1.12
 pytest-watch
 pytest-xdist
 radon
