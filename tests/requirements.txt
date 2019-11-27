@@ -4,7 +4,7 @@ flake8
 ipython
 isort
 mypy
-pre-commit
+pre-commit==1.20.0
 pylint
 pytest
 pytest-benchmark
