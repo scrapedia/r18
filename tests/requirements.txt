@@ -17,7 +17,7 @@ pytest-pycharm
 pytest-pylint
 pytest-sugar
 pytest-twisted
-pytest-watch
+pytest-watch==4.2.0
 pytest-xdist
 radon
 tox
