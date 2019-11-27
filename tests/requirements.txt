@@ -1,11 +1,11 @@
-bandit
-black
+bandit==1.6.2
+black==19.10b0
 flake8
-ipython
-isort
-mypy
+ipython==7.9.0
+isort==4.3.21
+mypy==0.740
 pre-commit
-pylint
+pylint==2.4.4
 pytest==5.3.0
 pytest-benchmark
 pytest-black

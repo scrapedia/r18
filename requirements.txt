@@ -1,4 +1,4 @@
-pillow
+pillow==6.2.1
 scrapy==1.8.0
-Scrapy-Pipelines
-sentry-sdk
+Scrapy-Pipelines==0.2
+sentry-sdk==0.13.4
