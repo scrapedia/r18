@@ -14,7 +14,7 @@ pytest-env
 pytest-instafail==0.4.1.post0
 pytest-mypy
 pytest-pycharm==0.6.0
-pytest-pylint
+pytest-pylint==0.14.1
 pytest-sugar
 pytest-twisted
 pytest-watch
