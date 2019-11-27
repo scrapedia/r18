@@ -49,7 +49,7 @@ Requirements
 .. image:: https://pyup.io/repos/github/scrapedia/r18/shield.svg
    :target: https://pyup.io/repos/github/scrapedia/r18/
    :alt: pyup
-   
+
 .. image:: https://snyk.io/test/github/scrapedia/r18/badge.svg
     :target: https://snyk.io/test/github/scrapedia/r18
     :alt: Known Vulnerabilities
