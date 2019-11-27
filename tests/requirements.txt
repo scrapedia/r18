@@ -9,7 +9,7 @@ pylint
 pytest
 pytest-benchmark
 pytest-black
-pytest-cov
+pytest-cov==2.8.1
 pytest-env
 pytest-instafail
 pytest-mypy
