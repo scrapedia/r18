@@ -1,4 +1,4 @@
 pillow
 scrapy==1.8.0
 Scrapy-Pipelines
-sentry-sdk
+sentry-sdk==0.13.4
