@@ -12,7 +12,7 @@ pytest-black
 pytest-cov
 pytest-env
 pytest-instafail
-pytest-mypy
+pytest-mypy==0.4.2
 pytest-pycharm
 pytest-pylint
 pytest-sugar
