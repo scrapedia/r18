@@ -10,7 +10,7 @@ pytest==5.3.0
 pytest-benchmark==3.2.2
 pytest-black==0.3.7
 pytest-cov==2.8.1
-pytest-env
+pytest-env==0.6.2
 pytest-instafail==0.4.1.post0
 pytest-mypy
 pytest-pycharm==0.6.0
