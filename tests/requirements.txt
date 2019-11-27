@@ -6,7 +6,7 @@ isort
 mypy
 pre-commit
 pylint
-pytest
+pytest==5.3.0
 pytest-benchmark
 pytest-black
 pytest-cov
