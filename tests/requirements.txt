@@ -10,7 +10,7 @@ pytest
 pytest-benchmark
 pytest-black
 pytest-cov
-pytest-env
+pytest-env==0.6.2
 pytest-instafail
 pytest-mypy
 pytest-pycharm
