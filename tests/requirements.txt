@@ -2,7 +2,7 @@ bandit==1.6.2
 black==19.10b0
 flake8
 ipython==7.9.0
-isort
+isort==4.3.21
 mypy
 pre-commit
 pylint
