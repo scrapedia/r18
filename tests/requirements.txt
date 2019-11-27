@@ -3,7 +3,7 @@ black
 flake8
 ipython
 isort
-mypy
+mypy==0.740
 pre-commit
 pylint
 pytest
