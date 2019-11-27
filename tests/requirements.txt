@@ -19,5 +19,5 @@ pytest-sugar
 pytest-twisted
 pytest-watch
 pytest-xdist
-radon
+radon==4.0.0
 tox
