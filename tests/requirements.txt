@@ -18,6 +18,6 @@ pytest-pylint
 pytest-sugar
 pytest-twisted
 pytest-watch
-pytest-xdist
+pytest-xdist==1.30.0
 radon
 tox
