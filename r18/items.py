@@ -14,7 +14,7 @@ PATTERN_RUNTIME = re.compile(
 )
 
 
-class ParseActresses:
+class ParseActresses:  # pylint: disable=too-few-public-methods
     """
     actresses parser for field actresses
     """
@@ -25,7 +25,7 @@ class ParseActresses:
             yield {"name": text.strip(), "url": href}
 
 
-class ParseCategories:
+class ParseCategories:  # pylint: disable=too-few-public-methods
     """
     categories parser for field categories
     """
@@ -36,7 +36,7 @@ class ParseCategories:
             yield {"name": text.strip(), "url": href}
 
 
-class ParseDetail:
+class ParseDetail:  # pylint: disable=too-few-public-methods
     """
     detail parser for field detail
     """
@@ -54,7 +54,8 @@ class ParseDetail:
     def _parse_channel(channel: Selector) -> List[Dict[str, str]]:
         _channel = list()
         for text, href in zip(
-            channel.css("a::text").extract(), channel.css("a::attr(href)").extract()
+            channel.css("a::text").extract(),  # pylint: disable=bad-continuation
+            channel.css("a::attr(href)").extract(),  # pylint: disable=bad-continuation
         ):
             _channel.append({"name": text.strip(), "url": href})
         return _channel
@@ -80,7 +81,8 @@ class ParseDetail:
     def _parse_series(series: Selector):
         _series = dict()
         for text, href in zip(
-            series.css("a::text").extract(), series.css("a::attr(href)").extract()
+            series.css("a::text").extract(),  # pylint: disable=bad-continuation
+            series.css("a::attr(href)").extract(),  # pylint: disable=bad-continuation
         ):
             _series.update({"name": text.strip(), "url": href})
         return _series
@@ -89,7 +91,8 @@ class ParseDetail:
     def _parse_studio(studio: Selector) -> List[Dict[str, str]]:
         _studio = list()
         for text, href in zip(
-            studio.css("a::text").extract(), studio.css("a::attr(href)").extract()
+            studio.css("a::text").extract(),  # pylint: disable=bad-continuation
+            studio.css("a::attr(href)").extract(),  # pylint: disable=bad-continuation
         ):
             _studio.append({"name": text.strip(), "url": href})
         return _studio
@@ -113,15 +116,15 @@ class ParseDetail:
             yield product
 
 
-class JoinDict:
+class JoinDict:  # pylint: disable=too-few-public-methods
     """
     join multiple dictionaries into one
     """
 
     def __call__(self, values: Iterable[Dict]) -> Dict:
         _ = dict()
-        for d in values:
-            _.update(d)
+        for value in values:
+            _.update(value)
         return _
 
 
