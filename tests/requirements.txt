@@ -7,7 +7,7 @@ mypy
 pre-commit
 pylint
 pytest
-pytest-benchmark
+pytest-benchmark==3.2.2
 pytest-black
 pytest-cov
 pytest-env
