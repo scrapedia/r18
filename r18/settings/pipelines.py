@@ -1,6 +1,8 @@
 """
 pipelines configuration for this spider
 """
+from typing import Callable, Dict, List, Tuple, Union
+
 from txmongo.filter import ASCENDING
 
 from r18.settings import ITEM_PIPELINES, get_env_var
@@ -12,19 +14,21 @@ ITEM_PIPELINES.update(
     }
 )
 
-IMAGES_URLS_FIELD = "image_detail_view"
-IMAGES_STORE = "./images"
+IMAGES_URLS_FIELD: str = "image_detail_view"
+IMAGES_STORE: str = "./images"
 
-PIPELINE_MONGO_DATABASE = "r18"
+PIPELINE_MONGO_DATABASE: str = "r18"
 
-PIPELINE_MONGO_USERNAME = "r18"
-PIPELINE_MONGO_PASSWORD = get_env_var(
+PIPELINE_MONGO_USERNAME: str = "r18"
+PIPELINE_MONGO_PASSWORD: str = get_env_var(
     "R18_MONGO_PASSWORD", default="r18_mongo_password"
 )
 
-PIPELINE_MONGO_COLLECTION = "detail"
+PIPELINE_MONGO_COLLECTION: str = "detail"
 
-PIPELINE_MONGO_INDEXES = [
+PIPELINE_MONGO_INDEXES: List[
+    Union[Tuple[str, Callable], Tuple[str, Callable, Dict[str, Dict]]]
+] = [
     ("url", ASCENDING),
     ("name", ASCENDING),
     ("actresses.name", ASCENDING),

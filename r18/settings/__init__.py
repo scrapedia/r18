@@ -2,7 +2,7 @@
 The basic settings for this spider
 """
 import os
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from r18.exceptions import R18SettingsMissingException
 
@@ -27,19 +27,19 @@ def get_env_var(  # pylint: disable=bad-continuation
         return default
 
 
-BOT_NAME = "r18"
+BOT_NAME: str = "r18"
 
-SPIDER_MODULES = ["r18.spiders"]
-NEWSPIDER_MODULE = "r18.spiders"
+SPIDER_MODULES: List[str] = ["r18.spiders"]
+NEWSPIDER_MODULE: str = "r18.spiders"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY: bool = True
 
 # Disable Telnet Console (enabled by default)
-# TELNETCONSOLE_ENABLED = False
+# TELNETCONSOLE_ENABLED: bool = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
+# DEFAULT_REQUEST_HEADERS: Dict[str, str] = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
 # }
