@@ -1,7 +1,7 @@
 """
 The spider for r18
 """
-from typing import Generator
+from typing import Generator, List, Tuple
 
 from scrapy.http import Response
 from scrapy.item import Item
@@ -16,9 +16,9 @@ class R18SitemapSpider(SitemapSpider):
     R18 sitemap spider
     """
 
-    name = "R18 Sitemap"
-    sitemap_urls = ["http://www.r18.com/sitemap.xml"]
-    sitemap_rules = [
+    name: str = "R18 Sitemap"
+    sitemap_urls: List[str] = ["http://www.r18.com/sitemap.xml"]
+    sitemap_rules: List[Tuple[str, str]] = [
         (
             r"^https:\/\/www\.r18\.com\/videos\/vod\/(.+)\/detail\/-\/id=.+\/(\?lg=(?P<lang>(zh|en)))?$",
             "parse_detail",
@@ -41,7 +41,7 @@ class R18SitemapSpider(SitemapSpider):
 
         self.crawler.stats.inc_value("r18/en_detail_count")
 
-        detail_il = ItemLoader(
+        detail_il: ItemLoader = ItemLoader(
             item=R18DetailItem(), selector=response.css(".product-details-page")
         )
 
