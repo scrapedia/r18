@@ -1,7 +1,7 @@
 bandit==1.6.2
 black==19.10b0
 flake8==3.7.9
-ipython==7.13.0
+ipython==7.14.0
 isort==4.3.21
 mypy==0.761
 pre-commit==2.2.0
