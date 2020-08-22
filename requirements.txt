@@ -1,4 +1,4 @@
-pillow==7.1.1
-scrapy==2.0.1
+pillow==7.2.0
+scrapy==2.2.0
 Scrapy-Pipelines==0.2
 sentry-sdk==0.14.3
