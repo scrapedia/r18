@@ -5,7 +5,7 @@ ipython==7.13.0
 isort==4.3.21
 mypy==0.761
 pre-commit==2.3.0
-pylint==2.4.4
+pylint==2.5.2
 pytest==5.4.1
 pytest-benchmark==3.2.3
 pytest-black==0.3.8
@@ -20,4 +20,4 @@ pytest-twisted==1.12
 pytest-watch==4.2.0
 pytest-xdist==1.31.0
 radon==4.1.0
-tox==3.14.6
+tox==3.15.0
